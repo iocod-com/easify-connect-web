@@ -1,0 +1,29 @@
+{
+  "name": "rbsoft/sms-gateway",
+  "description": "Create your own SMS Gateway using your mobile phone.",
+  "require": {
+    "php": ">=8.0",
+    "ext-json": "*",
+    "ext-openssl": "*",
+    "ext-ctype": "*",
+    "symfony/deprecation-contracts": "~2.5.2",
+    "phpoffice/phpspreadsheet": "^1.18.0",
+    "ravibpatel/jwt-session": "^1.0.7",
+    "chillerlan/php-qrcode": "^4.3.4",
+    "phpmailer/phpmailer": "^6.5.1",
+    "guzzlehttp/guzzle": "^7.3.0",
+    "google/recaptcha": "^1.2.4",
+    "pusher/pusher-php-server": "^7.0",
+    "openspout/openspout": "^4.13.1"
+  },
+  "autoload": {
+    "classmap": [
+      "model/",
+      "controller/"
+    ],
+    "files": [
+      "includes/functions.php",
+      "resources/lang.php"
+    ]
+  }
+}
