@@ -42,7 +42,7 @@ if ($_SESSION["isAdmin"]) {
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg">
                 <img src="<?= Setting::get("logo_src"); ?>" alt="logo">
-                <span id="application-title"><?= htmlentities(__("application_title"), ENT_QUOTES); ?></span>
+                <span id="application-title">Easify Connect</span>
             </span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
