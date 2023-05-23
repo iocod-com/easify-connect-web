@@ -60,6 +60,7 @@ require_once __DIR__ . "/includes/header.php";
                                         <input type="checkbox" id="check-all">
                                     </label>
                                 </th>
+                                <th>ID</th>
                                 <th><?= __("name"); ?></th>
                                 <th><?= __("device_model"); ?></th>
                                 <th><?= __("android_version"); ?></th>

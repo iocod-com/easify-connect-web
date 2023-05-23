@@ -19,6 +19,7 @@ try {
             if ($_SESSION["isAdmin"] || $device->getUserID() == $logged_in_user->getID() || $device->getEnabled()) {
                 $row = [];
                 $disabled =  $device->getUserID() == $logged_in_user->getID() ? "" : "disabled";
+                $row[] = $device->getID();
                 $row[] = "<label><input type='checkbox' name='devices[]' class='remove-devices' onchange='toggleRemove()' value='{$device->getID()}' {$disabled}></label>";
                 $name = is_null($deviceUser->getName()) ? 'null' : "'" . htmlentities($deviceUser->getName(), ENT_QUOTES) . "'";
                 if ($user->getID() == $logged_in_user->getID()) {
