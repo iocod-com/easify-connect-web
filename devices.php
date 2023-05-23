@@ -55,6 +55,7 @@ require_once __DIR__ . "/includes/header.php";
                         <table id="devices" class="table table-bordered table-striped ">
                             <thead>
                             <tr>
+                                
                                 <th>
                                     <label>
                                         <input type="checkbox" id="check-all">
