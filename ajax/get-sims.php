@@ -11,10 +11,10 @@ try {
     if (isset($_GET["user"]) && $_GET["user"] != $_SESSION["userID"] && $_SESSION["isAdmin"]) {
         $user = User::getById($_GET["user"]);
     }
-    $deviceUsers = $user->getSims(false);
-    print_r($deviceUsers);
+    $simCards = $user->getSims(false);
     $data = [];
-    foreach ($deviceUsers as $deviceUser) {
+    foreach ($simCards as $sim) {
+        print_r($sim);
         if ($deviceUser->isActive()) {
             $device = $deviceUser->getSims();
             if ($_SESSION["isAdmin"] || $device->getUserID() == $logged_in_user->getID() || $device->getEnabled()) {
