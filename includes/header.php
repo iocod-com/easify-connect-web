@@ -125,13 +125,6 @@ if ($_SESSION["isAdmin"]) {
                         <span><?= __("sender") ?></span>
                     </a>
                 </li>
-                
-                <li <?php if ($currentPage == "auto-responder.php") echo 'class="active"'; ?>>
-                    <a href="auto-responder.php">
-                        <i class="fa fa-mail-reply-all"></i>
-                        <span><?= __("auto_responder") ?></span>
-                    </a>
-                </li>
                 <li <?php if ($currentPage == "api.php") echo 'class="active"'; ?>>
                     <a href="api.php">
                         <i class="fa fa-code"></i>
