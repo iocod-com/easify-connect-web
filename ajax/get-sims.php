@@ -12,9 +12,10 @@ try {
         $user = User::getById($_GET["user"]);
     }
     $simCards = $user->getUISims();
+    print_r($simCards);
     $data = [];
     foreach ($simCards as $sim) {
-        $row[] = $sim[0];
+        $row[] = $sim;
         // if ($sim->isActive()) {
         //     $device = $sim->getSims();
         //     if ($_SESSION["isAdmin"] || $device->getUserID() == $logged_in_user->getID() || $device->getEnabled()) {
