@@ -107,8 +107,8 @@ if ($_SESSION["isAdmin"]) {
                         <span><?= __("devices") ?></span>
                     </a>
                 </li>
-                <li <?php if ($currentPage == "sim-cards.php.php") echo 'class="active"'; ?>>
-                    <a href="sim-cards.php.php">
+                <li <?php if ($currentPage == "sim-cards.php") echo 'class="active"'; ?>>
+                    <a href="sim-cards.php">
                         <i class="fa fa-android"></i>
                         <span>Sim Cards</span>
                     </a>
