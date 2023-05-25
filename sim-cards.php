@@ -36,7 +36,7 @@ require_once __DIR__ . "/includes/header.php";
                                     ?>
                                 </select>
                             <?php } else { ?>
-                                <h3 class="box-title"><?= __("devices"); ?></h3>
+                                <h3 class="box-title">SIM Cards</h3>
                             <?php } ?>
                         </div>
                         <div class="pull-right">
@@ -55,22 +55,8 @@ require_once __DIR__ . "/includes/header.php";
                         <table id="devices" class="table table-bordered table-striped ">
                             <thead>
                             <tr>
-                                
-                                <th>
-                                    <label>
-                                        <input type="checkbox" id="check-all">
-                                    </label>
-                                </th>
-                                <th>ID</th>
-                                <th><?= __("name"); ?></th>
-                                <th><?= __("device_model"); ?></th>
-                                <th><?= __("android_version"); ?></th>
-                                <th><?= __("app_version"); ?></th>
-                                <th><?= __("total_messages"); ?></th>
-                                <th><?= __("device_status"); ?></th>
-                                <?php if ($_SESSION["isAdmin"]) { ?>
-                                <th><?= __("shared_with"); ?></th>
-                                <?php } ?>
+                                <th>Name</th>
+                                <th>Device</th>
                             </tr>
                             </thead>
                         </table>

@@ -243,7 +243,11 @@ class Sim extends Entity
         $objects = $objects->read_all(false);
         $sims = [];
         foreach ($objects as $sim) {
-            $sims[] = strval($sim);
+            $collection = [
+                'name'  => $sim->carrier." | ".$sim->number." | SLOT :- ".$sim->slot+1,
+                'deviceId'  => $sim->device->getById($sim->getDeviceID(),$userID),
+            ];
+            $sims[] = $collection;
         }
         return $sims;
     }
