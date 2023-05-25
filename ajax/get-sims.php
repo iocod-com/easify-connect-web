@@ -11,8 +11,7 @@ try {
     if (isset($_GET["user"]) && $_GET["user"] != $_SESSION["userID"] && $_SESSION["isAdmin"]) {
         $user = User::getById($_GET["user"]);
     }
-    $simCards = $user->getSims();
-    print_r($simCards);
+    $simCards = $user->getUISims();
     $data = [];
     foreach ($simCards as $sim) {
         $row[] = $sim[0];

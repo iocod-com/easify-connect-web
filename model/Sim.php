@@ -225,4 +225,26 @@ class Sim extends Entity
         }
         return $sims;
     }
+    /**
+     * @param int|null $userID
+     * @return array
+     * @throws Exception
+     */
+    public static function getUiSims(?int $userID = null): array
+    {
+        $deviceIds = [];
+        if ($userID != null) {
+            $deviceIds = User::getDeviceIds($userID);
+        }
+        $objects = Sim::where("Sim.enabled", true);
+        if ($deviceIds) {
+            $objects->where('Sim.DeviceID', $deviceIds, 'IN');
+        }
+        $objects = $objects->read_all(false);
+        $sims = [];
+        foreach ($objects as $sim) {
+            $sims[$sim->getDeviceID()][$sim->getSlot()] = strval($sim);
+        }
+        return $sims;
+    }
 }

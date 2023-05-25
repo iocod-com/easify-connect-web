@@ -580,6 +580,15 @@ class User extends Entity
     {
         return Sim::getSims($this->getID());
     }
+    
+    /**
+     * @return array
+     * @throws Exception
+     */
+    public function getUISims(): array
+    {
+        return Sim::getUiSims($this->getID());
+    }
 
     /**
      * @param int $userID
