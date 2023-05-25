@@ -113,24 +113,6 @@ if ($_SESSION["isAdmin"]) {
                         <span>Sim Cards</span>
                     </a>
                 </li>
-                <li <?php if ($currentPage == "blacklist.php") echo 'class="active"'; ?>>
-                    <a href="blacklist.php">
-                        <i class="fa fa-ban"></i>
-                        <span><?= __("blacklist") ?></span>
-                    </a>
-                </li>
-                <li <?php if ($currentPage == "templates.php") echo 'class="active"'; ?>>
-                    <a href="templates.php">
-                        <i class="fa fa-sticky-note"></i>
-                        <span><?= __("templates") ?></span>
-                    </a>
-                </li>
-                <li <?php if ($currentPage == "contacts.php") echo 'class="active"'; ?>>
-                    <a href="contacts.php">
-                        <i class="fa fa-address-card"></i>
-                        <span><?= __("contacts") ?></span>
-                    </a>
-                </li>
                 <li <?php if ($currentPage == "messages.php") echo 'class="active"'; ?>>
                     <a href="messages.php">
                         <i class="fa fa-envelope"></i>
@@ -143,12 +125,7 @@ if ($_SESSION["isAdmin"]) {
                         <span><?= __("sender") ?></span>
                     </a>
                 </li>
-                <li <?php if ($currentPage == "ussd.php") echo 'class="active"'; ?>>
-                    <a href="ussd.php">
-                        <i class="fa fa-phone"></i>
-                        <span><?= __("ussd"); ?></span>
-                    </a>
-                </li>
+                
                 <li <?php if ($currentPage == "auto-responder.php") echo 'class="active"'; ?>>
                     <a href="auto-responder.php">
                         <i class="fa fa-mail-reply-all"></i>
