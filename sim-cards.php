@@ -122,75 +122,7 @@ require_once __DIR__ . "/includes/header.php";
             <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
-
-        <?php if ($_SESSION["isAdmin"]) { ?>
-        <div class="modal fade" id="modal-share-devices">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title"><?= __("share_device") ?></h4>
-                    </div>
-                    <form id="share-device">
-                        <div class="modal-body">
-                            <input type="hidden" name="deviceID" id="deviceIDShareInput" class="form-control"
-                                   required="required">
-                            <div class="form-group">
-                                <label for="shareToAllInput">
-                                    <?= __("share_with"); ?>
-                                </label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-share"></i>
-                                    </div>
-                                    <select name="shareToAll" class="form-control select2" id="shareToAllInput" style="width: 100%;">
-                                        <option value="1"><?= __("all_users"); ?></option>
-                                        <option value="2"><?= __("demo_users"); ?></option>
-                                        <option value="0"><?= __("selected_users"); ?></option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group" id="shareWithFormGroup" hidden>
-                                <label for="shareWithInput">
-                                    <?= __("users"); ?>
-                                </label>
-                                <div class="input-group">
-                                    <div class="input-group-addon">
-                                        <i class="fa fa-users"></i>
-                                    </div>
-                                    <select name="shareWith[]" class="form-control select2" id="shareWithInput" style="width: 100%;" multiple>
-                                        <?php
-                                        foreach ($users as $user) {
-                                            if ($user->getID() == $_SESSION["userID"]) {
-                                                continue;
-                                            }
-                                            createOption(strval($user), $user->getID(), false);
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <label for="useOwnerSettingsInput">
-                                <input type="checkbox" name="useOwnerSettings" value="1" id="useOwnerSettings">
-                                <?= __("use_owner_settings"); ?>
-                            </label>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default pull-left" data-dismiss="modal"><i
-                                        class="fa fa-remove"></i>&nbsp;<?= __("close") ?>
-                            </button>
-                            <button type="submit" id="shareDeviceButton" class="btn btn-primary"><i class="fa fa-save"></i>&nbsp;<?= __("save_changes") ?>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
-        </div>
         <!-- /.modal -->
-        <?php } ?>
 
     </section>
     <!-- /.content -->
@@ -284,9 +216,9 @@ require_once __DIR__ . "/includes/header.php";
         let selectUser = $("#user");
         selectUser.change(function () {
             if (table.ajax.url()) {
-                table.ajax.url("ajax/get-devices.php?user=" + $(this).val()).load();
+                table.ajax.url("ajax/get-sims.php?user=" + $(this).val()).load();
             } else {
-                table.ajax.url("ajax/get-devices.php?user=" + $(this).val())
+                table.ajax.url("ajax/get-sims.php?user=" + $(this).val())
             }
             $("#qr-code").attr("src", `qr-code.php?user=${$(this).val()}`);
             reset();
@@ -294,7 +226,7 @@ require_once __DIR__ . "/includes/header.php";
 
         selectUser.change();
         <?php } else { ?>
-        table.ajax.url("ajax/get-devices.php")
+        table.ajax.url("ajax/get-sims.php")
         <?php } ?>
 
         function reset() {
