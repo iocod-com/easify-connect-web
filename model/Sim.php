@@ -243,7 +243,7 @@ class Sim extends Entity
         $objects = $objects->read_all(false);
         $sims = [];
         foreach ($objects as $sim) {
-            $sims[$sim->getDeviceID()][$sim->getSlot()] = strval($sim);
+            $sims[] = strval($sim);
         }
         return $sims;
     }
