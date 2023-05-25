@@ -107,6 +107,12 @@ if ($_SESSION["isAdmin"]) {
                         <span><?= __("devices") ?></span>
                     </a>
                 </li>
+                <li <?php if ($currentPage == "sim-cards.php.php") echo 'class="active"'; ?>>
+                    <a href="sim-cards.php.php">
+                        <i class="fa fa-android"></i>
+                        <span>Sim Cards</span>
+                    </a>
+                </li>
                 <li <?php if ($currentPage == "blacklist.php") echo 'class="active"'; ?>>
                     <a href="blacklist.php">
                         <i class="fa fa-ban"></i>
