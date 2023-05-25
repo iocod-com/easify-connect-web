@@ -17,7 +17,7 @@ try {
     foreach ($simCards as $sim) {
         $row = [];
         $row[] = $sim['name'];
-        $row[] = $sim['deviceId']->model;
+        $row[] = ($sim['deviceId']->model) ? $sim['deviceId']->model : '';
         $data[] = $row;
     }
 
