@@ -39,24 +39,21 @@ require_once __DIR__ . "/includes/header.php";
                                 <h3 class="box-title">SIM Cards</h3>
                             <?php } ?>
                         </div>
-                        <div class="pull-right">
-                            <button type="button" id="remove-selected" class="btn btn-danger" disabled><i
-                                        class="icon fa fa-remove"></i><span
-                                        class="hidden-xs hidden-sm">&nbsp;<?= __("remove"); ?></span></button>
-                            <button type="button" id="add-device" style="margin-right: 4px"
-                                    class="btn btn-primary" data-toggle="modal"
-                                    data-target="#modal-add-device">
-                                <i class="icon fa fa-plus"></i><span
-                                        class="hidden-xs hidden-sm">&nbsp;<?= __("add_device"); ?></span></button>
-                        </div>
+                 
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <table id="devices" class="table table-bordered table-striped ">
                             <thead>
                             <tr>
+                            
+
                                 <th>Name</th>
                                 <th>Device</th>
+                                <th>
+                                    Actions
+                                </th>
+                               
                             </tr>
                             </thead>
                         </table>
@@ -297,6 +294,31 @@ require_once __DIR__ . "/includes/header.php";
             }
         });
     });
+
+    function deleteSim(id){
+                let result = confirm("Are you sure you want to delete?");
+                if (result) {
+                    $.ajax({
+                        type: "POST",
+                        url: "ajax/delete-simcard.php",
+                        data: {
+                            id: id,
+                        },
+                        cache: false,
+                        success: function(data) {
+                            res = JSON.parse(data);
+                            toastr.success(res.result);
+                            setTimeout(function () {
+                                location.reload();
+                            }, 1000);
+                        },
+                        error: function(xhr, status, error) {
+                            toastr.error("Failed to remove sim card");
+                             $(this).prop('disabled', false);
+                        }
+                        });
+                }
+            }
 </script>
 </body>
 </html>
