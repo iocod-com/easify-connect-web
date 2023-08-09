@@ -16,7 +16,7 @@ try {
     foreach ($simCards as $sim) {
         $row = [];
         $row[] = $sim['name'];
-        $row[] = ($sim['deviceId']->model)  ? $sim['deviceId']->model : '';
+        $row[] = ($sim['deviceId']->model)  ? $sim['deviceId']->ID : '';
         $row[] = (isset($sim)) ? "</i><button class='btn btn-danger btn-sm' onClick='deleteSim(".$sim['ID'].")' value=''><i class ='icon fa fa-remove'> Delete</button>" : '';
         $data[] = $row;
     }
