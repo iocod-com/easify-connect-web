@@ -16,7 +16,7 @@ try {
         if ($sim->read()) {
             $deviceID = $sim->getDeviceID();
             //delete-number-from-easify-start
-            $apiUrl = 'https://easify-api.test/api/delete-ec-number';
+            $apiUrl = 'https://api.easify.iocod.com/api/delete-ec-number';
 
             $data = array(
                 'device_id' => $deviceID,
