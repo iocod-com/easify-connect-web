@@ -133,6 +133,8 @@ class Sim extends Entity
         return $this->deviceID;
     }
 
+
+
     /**
      * @param int $deviceID
      */
@@ -225,6 +227,7 @@ class Sim extends Entity
         }
         return $sims;
     }
+
     /**
      * @param int|null $userID
      * @return array
@@ -244,6 +247,7 @@ class Sim extends Entity
         $sims = [];
         foreach ($objects as $sim) {
             $collection = [
+                'ID' => $sim->ID,
                 'name'  => $sim->carrier." | ".$sim->number." | SLOT :- <label class='label label-success'>".($sim->slot+1)."</label>",
                 'deviceId'  => $sim->device->getById($sim->getDeviceID(),$userID),
             ];
