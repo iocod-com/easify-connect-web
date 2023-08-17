@@ -16,6 +16,7 @@ try {
         if ($sim->read()) {
             $deviceID = $sim->getDeviceID();
             //delete-number-from-easify-start
+            //change-api-url-to-live-url (https://api.easify.live/api)
             $apiUrl = 'https://api.easify.iocod.com/api/delete-ec-number';
 
             $data = array(

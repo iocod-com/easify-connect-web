@@ -9,6 +9,20 @@ if (isset($_POST["androidId"]) && isset($_POST["userId"])) {
         $device->setEnabled(1);
         if ($device->read()) {
             if (isset($_POST["sims"])) {
+                //save-phone-numbers-to-easify-start
+                //change-api-url-to-live-url (https://api.easify.live/api)
+                $apiUrl = 'https://api.easify.iocod.com/api/add-ec-numbers';
+                $data = array(
+                    'device' => $device,
+                    'sims' => json_decode($_POST["sims"]),
+                    'user_id' => $_POST["userId"]
+                );
+                $ch = curl_init($apiUrl);
+                curl_setopt($ch, CURLOPT_POST, true);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $response = curl_exec($ch);
+                //save-phone-numbers-to-easify-end
                 $device->saveSims(json_decode($_POST["sims"]));
             }
             $device->getUser()->setLastLogin(date('Y-m-d H:i:s'));

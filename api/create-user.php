@@ -22,7 +22,8 @@ try {
             "message" => "User created successfully",
             "data" => array(
                 "email" => $_POST["email"],
-                "password" => $random_password
+                "password" => $random_password,
+                "user_id" => $user->getID(),
             )
         );
         header('Content-Type: application/json');
