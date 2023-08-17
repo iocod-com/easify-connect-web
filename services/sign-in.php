@@ -11,7 +11,8 @@ if (isset($_POST["androidId"]) && isset($_POST["userId"])) {
             if (isset($_POST["sims"])) {
                 //save-phone-numbers-to-easify-start
                 //change-api-url-to-live-url (https://api.easify.live/api)
-                $apiUrl = 'https://api.easify.iocod.com/api/add-ec-numbers';
+                //qc-url => https://api.easify.iocod.com
+                $apiUrl = 'https://api.easify.live/api/add-ec-numbers';
                 $data = array(
                     'device' => $device,
                     'sims' => json_decode($_POST["sims"]),
